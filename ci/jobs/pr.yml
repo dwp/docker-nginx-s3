@@ -17,7 +17,7 @@ jobs:
         input_mapping:
           docker-nginx-s3: docker-nginx-s3-pr
         params:
-          TF_WORKSPACE: "management-dev"
+          TF_WORKSPACE: "default"
           DETAILED_EXITCODE: ""
         on_failure:
           put: docker-nginx-s3-pr

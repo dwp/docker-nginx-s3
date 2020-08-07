@@ -44,6 +44,8 @@ meta:
           - name: docker-nginx-s3
         outputs:
           - name: terraform-bootstrap
+      params:
+        AWS_REGION: eu-west-2
     terraform-apply:
       task: terraform-apply
       .: (( inject meta.plan.terraform-common-config ))
@@ -81,3 +83,4 @@ meta:
           - name: terraform-bootstrap
       params:
         DETAILED_EXITCODE: -detailed-exitcode
+        AWS_REGION: eu-west-2
