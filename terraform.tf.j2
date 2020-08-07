@@ -3,7 +3,7 @@ terraform {
 
   backend "s3" {
     bucket         = "{{terraform.state_file_bucket}}"
-    key            = "terraform/dataworks/dataworks-repo-template-docker.tfstate"
+    key            = "terraform/dataworks/docker-nginx-s3.tfstate"
     region         = "{{terraform.state_file_region}}"
     encrypt        = true
     kms_key_id     = "arn:aws:kms:{{terraform.state_file_region}}:{{terraform.state_file_account}}:key/{{terraform.state_file_kms_key}}"
@@ -35,7 +35,7 @@ provider "aws" {
 }
 
 locals {
-  name        = "dataworks-repo-template-docker"
+  name        = "docker-nginx-s3"
   environment = terraform.workspace == "default" ? "development" : terraform.workspace
 
   account = {

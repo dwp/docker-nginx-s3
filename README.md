@@ -1,4 +1,4 @@
-# dataworks-repo-template-docker
+# docker-nginx-s3
 
 ## Description
 

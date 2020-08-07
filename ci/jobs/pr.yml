@@ -1,31 +1,31 @@
 jobs:
-  - name: dataworks-repo-template-docker-pr
+  - name: docker-nginx-s3-pr
     plan:
-      - get: dataworks-repo-template-docker-pr
+      - get: docker-nginx-s3-pr
         trigger: true
         version: every
-      - put: dataworks-repo-template-docker-pr
+      - put: docker-nginx-s3-pr
         params:
-          path: dataworks-repo-template-docker-pr
+          path: docker-nginx-s3-pr
           status: pending
         input_mapping:
-          dataworks-repo-template-docker: dataworks-repo-template-docker-pr
+          docker-nginx-s3: docker-nginx-s3-pr
       - .: (( inject meta.plan.terraform-bootstrap ))
         input_mapping:
-          dataworks-repo-template-docker: dataworks-repo-template-docker-pr
+          docker-nginx-s3: docker-nginx-s3-pr
       - .: (( inject meta.plan.terraform-plan ))
         input_mapping:
-          dataworks-repo-template-docker: dataworks-repo-template-docker-pr
+          docker-nginx-s3: docker-nginx-s3-pr
         params:
           TF_WORKSPACE: "management-dev"
           DETAILED_EXITCODE: ""
         on_failure:
-          put: dataworks-repo-template-docker-pr
+          put: docker-nginx-s3-pr
           params:
-            path: dataworks-repo-template-docker-pr
+            path: docker-nginx-s3-pr
             status: failure
         on_success:
-          put: dataworks-repo-template-docker-pr
+          put: docker-nginx-s3-pr
           params:
-            path: dataworks-repo-template-docker-pr
+            path: docker-nginx-s3-pr
             status: success

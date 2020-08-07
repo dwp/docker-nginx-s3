@@ -1,17 +1,17 @@
 resources:
-  - name: dataworks-repo-template-docker-pr
+  - name: docker-nginx-s3-pr
     type: pull-request
     source:
-      repository: dwp/dataworks-repo-template-docker
+      repository: dwp/docker-nginx-s3
       access_token: ((dataworks-secrets.concourse_github_pat))
     webhook_token: ((dataworks.concourse_github_webhook_token))
     check_every: 720h
 
-  - name: dataworks-repo-template-docker
+  - name: docker-nginx-s3
     type: git
     source:
       branch: master
-      uri: https://github.com/dwp/dataworks-repo-template-docker.git
+      uri: https://github.com/dwp/docker-nginx-s3.git
       access_token: ((dataworks-secrets.concourse_github_pat))
     webhook_token: ((dataworks.concourse_github_webhook_token))
     check_every: 720h
