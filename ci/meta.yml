@@ -45,7 +45,7 @@ meta:
         outputs:
           - name: terraform-bootstrap
       params:
-        AWS_REGION: eu-west-2
+        AWS_REGION: ((dataworks.aws_region))
     terraform-apply:
       task: terraform-apply
       .: (( inject meta.plan.terraform-common-config ))
@@ -83,4 +83,4 @@ meta:
           - name: terraform-bootstrap
       params:
         DETAILED_EXITCODE: -detailed-exitcode
-        AWS_REGION: eu-west-2
+        AWS_REGION: ((dataworks.aws_region))
