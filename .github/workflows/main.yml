@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  IMAGE_NAME: dwpdigital/docker-nginx-s3
+  IMAGE_NAME: dwpdigital/nginx-s3
 
 jobs:
   get-publish-version:
