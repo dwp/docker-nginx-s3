@@ -8,8 +8,6 @@ jobs:
         params:
           path: docker-nginx-s3-pr
           status: pending
-        input_mapping:
-          docker-nginx-s3: docker-nginx-s3-pr
       - .: (( inject meta.plan.terraform-bootstrap ))
         input_mapping:
           docker-nginx-s3: docker-nginx-s3-pr

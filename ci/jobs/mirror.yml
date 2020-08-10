@@ -1,44 +1,44 @@
 resources:
-  - name: dwpdigital-docker-nginx-s3
+  - name: dwpdigital-nginx-s3
     type: registry-image-resource
     source:
-      repository: dwpdigital/docker-nginx-s3
+      repository: dwpdigital/nginx-s3
     check_every: 5m
 
-  - name: ecr-dwpdigital-docker-nginx-s3-dev
+  - name: ecr-dwpdigital-nginx-s3-dev
     .: (( inject meta.resources.ecr-resource ))
     source:
-      repository: "docker-nginx-s3"
+      repository: "nginx-s3"
 
-  - name: ecr-dwpdigital-docker-nginx-s3
+  - name: ecr-dwpdigital-nginx-s3
     .: (( inject meta.resources.ecr-resource ))
     source:
-      repository: "docker-nginx-s3"
+      repository: "nginx-s3"
       aws_role_arn: arn:aws:iam::((dataworks.aws_management_acc)):role/ci
 
 jobs:
-  - name: mirror-dwpdigital-docker-nginx-s3-dev
-    serial_groups: [docker-nginx-s3]
+  - name: mirror-dwpdigital-nginx-s3-dev
+    serial_groups: [nginx-s3]
     plan:
-      - get: dwpdigital-docker-nginx-s3
+      - get: dwpdigital-nginx-s3
         trigger: true
         params:
           format: oci
         attempts: 3
-      - put: ecr-dwpdigital-docker-nginx-s3-dev
+      - put: ecr-dwpdigital-nginx-s3-dev
         params:
-          image: "dwpdigital-docker-nginx-s3/image.tar"
+          image: "dwpdigital-nginx-s3/image.tar"
         attempts: 3
 
-  - name: mirror-dwpdigital-docker-nginx-s3
-    serial_groups: [docker-nginx-s3]
+  - name: mirror-dwpdigital-nginx-s3
+    serial_groups: [nginx-s3]
     plan:
-      - get: dwpdigital-docker-nginx-s3
+      - get: dwpdigital-nginx-s3
         trigger: true
         params:
           format: oci
         attempts: 3
-      - put: ecr-dwpdigital-docker-nginx-s3
+      - put: ecr-dwpdigital-nginx-s3
         params:
-          image: "dwpdigital-docker-nginx-s3/image.tar"
+          image: "dwpdigital-nginx-s3/image.tar"
         attempts: 3
