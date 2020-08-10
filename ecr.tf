@@ -1,8 +1,8 @@
 resource "aws_ecr_repository" "docker-nginx-s3" {
-  name = "docker-nginx-s3"
+  name = "nginx-s3"
   tags = merge(
     local.common_tags,
-    { DockerHub : "dwpdigital/docker-nginx-s3" }
+    { DockerHub : "dwpdigital/nginx-s3" }
   )
 }
 

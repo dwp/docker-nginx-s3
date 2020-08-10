@@ -8,5 +8,5 @@ groups:
       - docker-nginx-s3-pr
   - name: mirror
     jobs:
-      - mirror-dwpdigital-docker-nginx-s3-dev
-      - mirror-dwpdigital-docker-nginx-s3
+      - mirror-dwpdigital-nginx-s3-dev
+      - mirror-dwpdigital-nginx-s3
