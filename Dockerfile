@@ -19,7 +19,7 @@ RUN pip install --trusted-host pypi.python.org --trusted-host files.pythonhosted
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 0755 /sbin/entrypoint.sh
 
-ENTRYPOINT ["sh", "-c", "/sbin/entrypoint.sh && /docker-entrypoint.sh"]
+ENTRYPOINT ["/sbin/entrypoint.sh"]
 
 EXPOSE 80
 
