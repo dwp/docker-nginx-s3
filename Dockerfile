@@ -20,3 +20,9 @@ COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 0755 /sbin/entrypoint.sh
 
 ENTRYPOINT ["sh", "-c", "/sbin/entrypoint.sh && /docker-entrypoint.sh"]
+
+EXPOSE 80
+
+STOPSIGNAL SIGTERM
+
+CMD ["nginx", "-g", "daemon off;"]
