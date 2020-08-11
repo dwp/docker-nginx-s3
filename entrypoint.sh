@@ -48,7 +48,7 @@ fi
 echo "INFO: Copying file from ${S3_URI} to /etc/nginx/ ..."
 aws ${PROFILE_OPTION} s3 cp ${S3_URI} /etc/nginx/nginx.zip
 cd /etc/nginx
-unzip nginx.zip
+unzip -o nginx.zip
 
 echo "INFO: Testing nginx config..."
 nginx -t >> /var/log/rev-proxy.log
