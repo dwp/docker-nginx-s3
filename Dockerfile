@@ -1,6 +1,6 @@
 # Builds a Docker image using nginx with config from S3
 
-FROM nginx:1.19.1-alpine
+FROM nginx:1.19-alpine
 
 # See: https://github.com/Docker-Hub-frolvlad/docker-alpine-python3/pull/13
 ENV PYTHONUNBUFFERED=1
