@@ -10,3 +10,6 @@ groups:
     jobs:
       - mirror-dwpdigital-nginx-s3-dev
       - mirror-dwpdigital-nginx-s3
+  - name: update-pipeline
+    jobs:
+      - update-pipeline
