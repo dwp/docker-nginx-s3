@@ -2,8 +2,6 @@
 
 ## Description
 
-This repo contains Makefile, and Dockerfile to fit the standard pattern.
-This repo is a base to create new Docker image repos, adding the githooks submodule, making the repo ready for use.
+This container image was built to support the use of a reverse proxy, for internal AWS services that did not expose and accessible endpoint on www.  e.g. EMR cluster dashboards.
 
-After cloning this repo, please run:  
-`make bootstrap`
+This was not persued much further than a POC and has had no futher updates.  This image is not maintained, but is in use as the [ingress service](https://github.com/dwp/dataworks-internet-ingress) is running.
